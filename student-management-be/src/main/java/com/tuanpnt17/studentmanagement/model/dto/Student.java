@@ -29,5 +29,5 @@ public class Student {
 
     @OneToOne
     @JoinColumn(name = "major_id")
-    private Major majorId;
+    private Major major;
 }

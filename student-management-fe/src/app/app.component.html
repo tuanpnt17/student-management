@@ -1,2 +1,11 @@
-<h1>hello world</h1>
-<p>by tuanpnt17</p>
+<mat-toolbar>
+  <mat-toolbar-row>
+    <h1>Student Management</h1>
+    <span class="menu-spacer" style="width: 100px"></span>
+    <nav>
+      <a class="space" mat-button routerLink="/dashboard" [routerLinkActive]="'active-link'" ariaCurrentWhenActive="page">Dashboard</a>
+      <a class="space" mat-button routerLink="/add" [routerLinkActive]="'active-link'" ariaCurrentWhenActive="page">Add Student</a>
+    </nav>
+  </mat-toolbar-row>
+</mat-toolbar>
+<router-outlet></router-outlet>

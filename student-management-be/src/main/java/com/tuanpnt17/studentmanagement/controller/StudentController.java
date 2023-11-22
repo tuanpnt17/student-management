@@ -3,6 +3,7 @@ package com.tuanpnt17.studentmanagement.controller;
 import com.tuanpnt17.studentmanagement.model.dto.Student;
 import com.tuanpnt17.studentmanagement.services.MyService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,6 +20,7 @@ public class StudentController {
         this.myService = myService;
     }
 
+    @CrossOrigin
     @GetMapping("")
     public List<Student> getAllStudent() {
         return myService.getStudentList();

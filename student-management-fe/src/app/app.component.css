@@ -1,0 +1,12 @@
+.menu-spacer {
+  flex: 1 1 auto;
+}
+
+.active-link {
+  background-color: pink;
+  color: darkslateblue !important;
+}
+
+.space {
+  margin-left: 10px;
+}
