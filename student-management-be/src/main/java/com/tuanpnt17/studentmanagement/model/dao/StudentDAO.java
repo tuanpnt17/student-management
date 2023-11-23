@@ -7,5 +7,13 @@ import java.util.List;
 
 @Repository
 public interface StudentDAO {
-    List<Student> getAll();
+  List<Student> getAll();
+
+  Student getOneStudent(String id);
+
+  Student createAStudent(Student student);
+
+  Student updateStudent(Student updatedStudent);
+
+  Student removeStudent(String id);
 }
