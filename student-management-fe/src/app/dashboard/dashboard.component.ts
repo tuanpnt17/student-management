@@ -1,10 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {CommonModule} from '@angular/common';
 import {MatButtonModule} from "@angular/material/button";
 import {MatTableModule} from "@angular/material/table";
 import {Route, Router, Routes} from "@angular/router";
 import {Student} from "../model/student";
 import {CommonService} from "../Services/common.service";
+
 @Component({
   selector: 'app-dashboard',
   standalone: true,
@@ -12,9 +13,9 @@ import {CommonService} from "../Services/common.service";
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })
-export class DashboardComponent implements OnInit{
+export class DashboardComponent implements OnInit {
 
-  public studentList:Student[] = [];
+  public studentList: Student[] = [];
 
   constructor(private route: Router, private common: CommonService) {
   }
@@ -27,8 +28,11 @@ export class DashboardComponent implements OnInit{
   }
 
 
-
   public addStudent() {
     this.route.navigate(['add']);
+  }
+
+  public updateStudent(): void {
+    this.route.navigate(['update']);
   }
 }

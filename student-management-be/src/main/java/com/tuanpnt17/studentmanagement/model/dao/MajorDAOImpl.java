@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Component
 public class MajorDAOImpl implements MajorDAO{
 
@@ -21,4 +23,18 @@ public class MajorDAOImpl implements MajorDAO{
   public Major getOneMajor(int majorId) {
     return entityManager.find(Major.class, majorId);
   }
+
+  @Override
+  @Transactional
+  public List<Major> getAll() {
+    return entityManager.createQuery("FROM Major", Major.class).getResultList();
+  }
+
+  @Override
+  public List<String> getAllMajorNames() {
+    String sql = "SELECT M.majorName FROM Major M";
+    return entityManager.createQuery(sql, String.class).getResultList();
+  }
+
+
 }

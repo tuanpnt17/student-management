@@ -1,1 +1,47 @@
-<p>add works!</p>
+<div class="center">
+  <form [formGroup]="studentForm">
+
+    <mat-form-field class="example-full-width">
+      <mat-label>ID</mat-label>
+      <input type="text" matInput [formControlName]="'id'"
+             placeholder="Ex. SE123456">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Name</mat-label>
+      <input type="text" matInput [formControlName]="'name'"
+             placeholder="Ex. Phạm Nguyễn Trọng Tuấn">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Gender</mat-label>
+      <mat-select [formControlName]="'gender'">
+        <mat-option value="Gender" disabled="true">Choose a gender</mat-option>
+        <mat-option value="Male">Male</mat-option>
+        <mat-option value="Female">Female</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Email</mat-label>
+      <input type="email" matInput [formControlName]="'email'"
+             placeholder="Ex. tuanpntse173039@gmail.com">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Phone</mat-label>
+      <input type="text" matInput [formControlName]="'phone'"
+             placeholder="Ex. 0367304351">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Major</mat-label>
+      <mat-select [formControlName]="'majorId'">
+        <mat-option value="" disabled="true">Choose a major</mat-option>
+        <mat-option *ngFor="let major of majors" value="{{major.majorId}}">{{major.majorName}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <button mat-button color="primary" (click)="onSubmit()">Submit</button>
+  </form>
+</div>

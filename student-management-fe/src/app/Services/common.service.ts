@@ -1,6 +1,7 @@
 import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 import { Injectable } from '@angular/core';
 import {catchError, Observable} from "rxjs";
+import {Major} from "../model/major";
 import {Student} from "../model/student";
 import { throwError } from 'rxjs/internal/observable/throwError';
 const httpOptions:{header: HttpHeaders} = {
@@ -23,8 +24,19 @@ export class CommonService {
     const url = `${this.REST_API_SERVER}students`;
     return this.httpClient.get<Student[]>(url).pipe(catchError(this.handleError));
   }
+  public addStudent(data: Student): Observable<Student> {
+    const url = `${this.REST_API_SERVER}students`;
+    return this.httpClient.post<Student>(url, data).pipe(catchError(this.handleError));
+  }
 
-  private handleError(error: HttpErrorResponse): Observable<Student[]> {
+  public getAllMajor(): Observable<Major[]> {
+    const url: string = `${this.REST_API_SERVER}majors`;
+    return this.httpClient.get<Major[]>(url).pipe(catchError(this.handleError));
+  }
+
+
+
+  private handleError(error: HttpErrorResponse): Observable<any> {
     if (error.status === 0) {
       // A client-side or network error occurred. Handle it accordingly.
       console.error('An error occurred:', error.error);
